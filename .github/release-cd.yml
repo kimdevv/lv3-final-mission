@@ -1,0 +1,17 @@
+name: CD
+
+on:
+  push:
+    branches: [ release ]
+
+jobs:
+  cd:
+    runs-on:
+      - self-hosted
+      - prod
+
+    steps:
+      - name: Run deploy script
+        run: |
+          cd /home/ssm-user
+          ./deploy.sh
